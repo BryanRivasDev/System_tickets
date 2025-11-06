@@ -1,11 +1,9 @@
 <?php
 // includes/auth.php
 
-// Evitar que se incluya múltiples veces
 if (!defined('AUTH_INCLUDED')) {
     define('AUTH_INCLUDED', true);
     
-    // Iniciar sesión si no está iniciada
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -19,7 +17,11 @@ if (!defined('AUTH_INCLUDED')) {
     }
 
     function isTecnico() {
-        return isset($_SESSION['rol']) && ($_SESSION['rol'] == 'Tecnico' || $_SESSION['rol'] == 'Administrador');
+        return isset($_SESSION['rol']) && $_SESSION['rol'] == 'Tecnico';
+    }
+
+    function isAdminOrTecnico() {
+        return isset($_SESSION['rol']) && ($_SESSION['rol'] == 'Administrador' || $_SESSION['rol'] == 'Tecnico');
     }
 
     function isUsuario() {
@@ -49,12 +51,24 @@ if (!defined('AUTH_INCLUDED')) {
         }
     }
 
+    function redirectIfNotAdminOrTecnico() {
+        redirectIfNotLoggedIn();
+        if (!isAdminOrTecnico()) {
+            header("Location: ../user/dashboard.php");
+            exit();
+        }
+    }
+
     function getUserRole() {
         return $_SESSION['rol'] ?? null;
     }
 
     function getUserName() {
         return $_SESSION['user_name'] ?? 'Usuario';
+    }
+
+    function getUserId() {
+        return $_SESSION['user_id'] ?? null;
     }
 }
 ?>

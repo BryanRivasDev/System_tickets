@@ -28,46 +28,56 @@ include 'auth.php';
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <?php if (isLoggedIn()): ?>
-                        <?php if (isAdmin() || isTecnico()): ?>
-                            <!-- Menú para Administradores y Técnicos -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="dashboard.php">
-                                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tickets.php">
-                                    <i class="fas fa-tickets"></i> Todos los Tickets
-                                </a>
-                            </li>
-                            <?php if (isAdmin()): ?>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="usuarios.php">
-                                        <i class="fas fa-users"></i> Usuarios
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <!-- Menú para Usuarios normales -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="dashboard.php">
-                                    <i class="fas fa-tachometer-alt"></i> Mi Dashboard
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="crear_ticket.php">
-                                    <i class="fas fa-plus-circle"></i> Nuevo Ticket
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="mis_tickets.php">
-                                    <i class="fas fa-list"></i> Mis Tickets
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                </ul>
+    <?php if (isLoggedIn()): ?>
+        <?php if (isAdmin()): ?>
+            <!-- Menú solo para Administradores -->
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.php">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tickets.php">
+                    <i class="fas fa-tickets"></i> Todos los Tickets
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="usuarios.php">
+                    <i class="fas fa-users"></i> Usuarios
+                </a>
+            </li>
+        <?php elseif (isTecnico()): ?>
+            <!-- Menú solo para Técnicos - PUNTO 6 -->
+            <li class="nav-item">
+                <a class="nav-link" href="../tecnico/dashboard.php">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../tecnico/mis_tickets.php">
+                    <i class="fas fa-tasks"></i> Mis Tickets
+                </a>
+            </li>
+        <?php else: ?>
+            <!-- Menú para Usuarios normales -->
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.php">
+                    <i class="fas fa-tachometer-alt"></i> Mi Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="crear_ticket.php">
+                    <i class="fas fa-plus-circle"></i> Nuevo Ticket
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mis_tickets.php">
+                    <i class="fas fa-list"></i> Mis Tickets
+                </a>
+            </li>
+        <?php endif; ?>
+    <?php endif; ?>
+</ul>
                 
                 <ul class="navbar-nav">
                     <?php if (isLoggedIn()): ?>

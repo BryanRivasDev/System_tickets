@@ -14,17 +14,20 @@ if (isset($_POST['login'])) {
     $user = $stmt->fetch();
     
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['nombre'];
-        $_SESSION['user_email'] = $user['email'];
-        $_SESSION['rol'] = $user['rol_nombre'];
-        
-        if ($user['rol_nombre'] == 'Administrador' || $user['rol_nombre'] == 'Tecnico') {
-            header("Location: admin/dashboard.php");
-        } else {
-            header("Location: user/dashboard.php");
-        }
-        exit();
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_name'] = $user['nombre'];
+    $_SESSION['user_email'] = $user['email'];
+    $_SESSION['rol'] = $user['rol_nombre'];
+    
+    // REDIRECCIÓN CORREGIDA - PUNTO 5
+    if ($user['rol_nombre'] == 'Administrador') {
+        header("Location: admin/dashboard.php");
+    } elseif ($user['rol_nombre'] == 'Tecnico') {
+        header("Location: tecnico/dashboard.php");
+    } else {
+        header("Location: user/dashboard.php");
+    }
+    exit();
     } else {
         $login_error = "Credenciales incorrectas";
     }
