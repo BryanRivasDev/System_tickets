@@ -1,0 +1,49 @@
+/* Estilos globales para tema oscuro */
+.card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    color: var(--text-light);
+}
+
+.card-header {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border-bottom: 1px solid var(--dark-border);
+    color: var(--text-light);
+}
+
+.table {
+    color: var(--text-light);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(30, 41, 59, 0.5);
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--text-light);
+}
+
+.form-control {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: var(--text-light);
+}
+
+.form-control:focus {
+    background: #1e293b;
+    border-color: var(--primary);
+    color: var(--text-light);
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
