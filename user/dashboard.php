@@ -220,7 +220,7 @@ $tickets_resueltos = $stmt->fetchColumn();
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <h1 class="display-6 fw-bold mb-2">
-                        <i class="fas fa-tachometer-alt me-2"></i>Mi Dashboard
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                     </h1>
                     <p class="lead text-muted mb-0">Bienvenido de vuelta, <?php echo $_SESSION['user_name']; ?></p>
                 </div>

@@ -171,16 +171,16 @@ if (!function_exists('isLoggedIn')) {
                     <?php if (isLoggedIn()): ?>
                         <?php if (isAdmin()): ?>
                             <!-- Menú solo para Administradores -->
-                            <li class="nav-item">
+                           <!--  <li class="nav-item">
                                 <a class="nav-link" href="dashboard.php">
                                     <i class="fas fa-tachometer-alt me-1"></i> Dashboard
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                           <!--  <li class="nav-item">
                                 <a class="nav-link" href="tickets.php">
                                     <i class="fas fa-tickets me-1"></i> Todos los Tickets
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="usuarios.php">
                                     <i class="fas fa-users me-1"></i> Usuarios
@@ -205,7 +205,7 @@ if (!function_exists('isLoggedIn')) {
                             </li>  
                         <?php else: ?>
                             <!-- Menú para Usuarios normales -->
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="dashboard.php">
                                     <i class="fas fa-tachometer-alt me-1"></i> Mi Dashboard
                                 </a>
@@ -219,7 +219,7 @@ if (!function_exists('isLoggedIn')) {
                                 <a class="nav-link" href="mis_tickets.php">
                                     <i class="fas fa-list me-1"></i> Mis Tickets
                                 </a>
-                            </li>
+                            </li> -->
                         <?php endif; ?>
                     <?php endif; ?>
                 </ul>

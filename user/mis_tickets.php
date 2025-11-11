@@ -45,7 +45,7 @@ foreach ($tickets as $ticket) {
             --primary: #3b82f6;
             --primary-hover: #2563eb;
             --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+            --text-muted: #b89494ff;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
@@ -76,9 +76,9 @@ foreach ($tickets as $ticket) {
             margin-bottom: 0;
         }
         
-        .table-striped > tbody > tr:nth-of-type(odd) {
+       /*  .table-striped > tbody > tr:nth-of-type(odd) {
             background-color: rgba(30, 41, 59, 0.5);
-        }
+        } */
         
         .table-hover > tbody > tr:hover {
             background-color: rgba(59, 130, 246, 0.1);
